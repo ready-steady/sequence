@@ -1,32 +1,14 @@
 # Sequence [![Build Status][status-svg]][status-url]
 
-The package provides generators of [low-discrepancy sequences][wiki].
+The package provides generators of [low-discrepancy sequences][1].
 
 ## [Documentation][doc]
 
-## Installation
+## References
 
-Fetch the package:
-
-```bash
-go get -d github.com/ready-steady/sequence
-```
-
-Go to the directory of the package:
-
-```bash
-cd $GOPATH/src/github.com/ready-steady/sequence
-```
-
-Finally, install the package:
-
-```bash
-make install
-```
-
-## Acknowledgments
-
-The code is based on the work of [John Burkardt][burkardt].
+* S. Joe and F. Y. Kuo, “[Constructing Sobol sequences with better
+  two-dimensional projections][2],” SIAM Journal on Scientific Computing, vol.
+  30, pp. 2635–2654, 2008.
 
 ## Contributing
 
@@ -34,8 +16,8 @@ The code is based on the work of [John Burkardt][burkardt].
 2. Implement your idea.
 3. Create a pull request.
 
-[wiki]: https://en.wikipedia.org/wiki/Low-discrepancy_sequence
-[burkardt]: http://people.sc.fsu.edu/~jburkardt
+[1]: https://en.wikipedia.org/wiki/Low-discrepancy_sequence
+[2]: http://dx.doi.org/10.1137/070709359
 
 [doc]: http://godoc.org/github.com/ready-steady/sequence
 [status-svg]: https://travis-ci.org/ready-steady/sequence.svg?branch=master

@@ -1,48 +1,26 @@
 package sequence
 
-import (
-	"errors"
-)
-
-// void sobol(int dim_num, long long int *seed, double quasi[]);
-import "C"
-
-// Sobol represents a Sobol sequence.
+// Sobol generates a Sobol sequence. The maximal number of dimensions is 21201,
+// and the maximal number of points is 2^32.
 //
 // https://en.wikipedia.org/wiki/Sobol_sequence
-type Sobol struct {
-	dims C.int
-	seed C.longlong
-}
+func Sobol(dimensions, points uint, seed int64) []float64 {
+	data := make([]float64, points*dimensions)
 
-// NewSobol returns a new Sobol sequence.
-func NewSobol(dimensions uint, seed int64) (*Sobol, error) {
-	const (
-		DIM_MAX2 = 1111 // sobol/sobol.cpp:14280
-	)
-
-	if dimensions == 0 || dimensions > DIM_MAX2 {
-		return nil, errors.New("the number of dimensions is invalid")
+	index := make([]uint, points)
+	for i := uint(1); i < points; i++ {
+		for j := i - 1; j&1 != 0; j >>= 1 {
+			index[i]++
+		}
 	}
 
-	sobol := &Sobol{
-		dims: C.int(dimensions),
-		seed: C.longlong(seed),
+	for i := uint(0); i < dimensions; i++ {
+		data[i] = float64(uint32(seed)) / (1 << sobolBits)
+		for j, x := uint(1), uint32(seed); j < points; j++ {
+			x ^= sobolData[i*sobolBits+index[j]]
+			data[j*dimensions+i] = float64(x) / (1 << sobolBits)
+		}
 	}
 
-	return sobol, nil
-}
-
-// Next returns the next `count` elements of the sequence.
-func (s *Sobol) Next(count uint) []float64 {
-	dims, seed := s.dims, s.seed
-
-	points := make([]float64, count*uint(dims))
-	for i := uint(0); i < count; i++ {
-		C.sobol(dims, &seed, (*C.double)(&points[i*uint(dims)]))
-	}
-
-	s.seed = seed
-
-	return points
+	return data
 }
