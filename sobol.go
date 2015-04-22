@@ -33,7 +33,7 @@ func NewSobol(dimensions uint, seed int64) (*Sobol, error) {
 	return sobol, nil
 }
 
-/// Next returns the next `count` elements of the sequence.
+// Next returns the next `count` elements of the sequence.
 func (s *Sobol) Next(count uint) []float64 {
 	dims, seed := s.dims, s.seed
 

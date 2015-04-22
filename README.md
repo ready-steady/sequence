@@ -1,6 +1,6 @@
 # Sampling [![Build Status][status-svg]][status-url]
 
-The package provides functions for generating [low-discrepancy sequences][1].
+The package provides generators of [low-discrepancy sequences][1].
 
 ## [Documentation][doc]
 
