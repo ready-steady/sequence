@@ -15,7 +15,7 @@ The code is based on the work of [John Burkardt][2].
 3. Create a pull request.
 
 [1]: https://en.wikipedia.org/wiki/Low-discrepancy_sequence
-[2]: http://people.sc.fsu.edu/~jburkardt/i.html
+[2]: http://people.sc.fsu.edu/~jburkardt
 
 [doc]: http://godoc.org/github.com/ready-steady/sampling
 [status-svg]: https://travis-ci.org/ready-steady/sampling.svg?branch=master
