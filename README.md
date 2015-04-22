@@ -1,4 +1,4 @@
-# Sampling [![Build Status][status-svg]][status-url]
+# Sequence [![Build Status][status-svg]][status-url]
 
 The package provides generators of [low-discrepancy sequences][wiki].
 
@@ -9,13 +9,13 @@ The package provides generators of [low-discrepancy sequences][wiki].
 Fetch the package:
 
 ```bash
-go get -d github.com/ready-steady/sampling
+go get -d github.com/ready-steady/sequence
 ```
 
 Go to the directory of the package:
 
 ```bash
-cd $GOPATH/src/github.com/ready-steady/sampling
+cd $GOPATH/src/github.com/ready-steady/sequence
 ```
 
 Finally, install the package:
@@ -37,6 +37,6 @@ The code is based on the work of [John Burkardt][burkardt].
 [wiki]: https://en.wikipedia.org/wiki/Low-discrepancy_sequence
 [burkardt]: http://people.sc.fsu.edu/~jburkardt
 
-[doc]: http://godoc.org/github.com/ready-steady/sampling
-[status-svg]: https://travis-ci.org/ready-steady/sampling.svg?branch=master
-[status-url]: https://travis-ci.org/ready-steady/sampling
+[doc]: http://godoc.org/github.com/ready-steady/sequence
+[status-svg]: https://travis-ci.org/ready-steady/sequence.svg?branch=master
+[status-url]: https://travis-ci.org/ready-steady/sequence

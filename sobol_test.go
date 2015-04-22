@@ -1,4 +1,4 @@
-package sampling
+package sequence
 
 import (
 	"testing"
