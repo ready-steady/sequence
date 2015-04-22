@@ -1,8 +1,12 @@
-# Sampling [![Build Status][travis-svg]][travis-url]
+# Sampling [![Build Status][status-svg]][status-url]
 
 The package provides functions for generating [low-discrepancy sequences][1].
 
 ## [Documentation][doc]
+
+## Acknowledgments
+
+The code is based on the work of [John Burkardt][2].
 
 ## Contributing
 
@@ -11,7 +15,8 @@ The package provides functions for generating [low-discrepancy sequences][1].
 3. Create a pull request.
 
 [1]: https://en.wikipedia.org/wiki/Low-discrepancy_sequence
+[2]: http://people.sc.fsu.edu/~jburkardt/i.html
 
 [doc]: http://godoc.org/github.com/ready-steady/sampling
-[travis-svg]: https://travis-ci.org/ready-steady/sampling.svg?branch=master
-[travis-url]: https://travis-ci.org/ready-steady/sampling
+[status-svg]: https://travis-ci.org/ready-steady/sampling.svg?branch=master
+[status-url]: https://travis-ci.org/ready-steady/sampling
