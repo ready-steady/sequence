@@ -5,6 +5,11 @@ package sequence
 //
 // https://en.wikipedia.org/wiki/Sobol_sequence
 func Sobol(dimensions, points uint, seed int64) []float64 {
+	const (
+		bits = 32
+		size = 1 << bits
+	)
+
 	data := make([]float64, points*dimensions)
 
 	index := make([]uint, points)
@@ -15,10 +20,10 @@ func Sobol(dimensions, points uint, seed int64) []float64 {
 	}
 
 	for i := uint(0); i < dimensions; i++ {
-		data[i] = float64(uint32(seed)) / (1 << sobolBits)
+		data[i] = float64(uint32(seed)) / size
 		for j, x := uint(1), uint32(seed); j < points; j++ {
-			x ^= sobolData[i*sobolBits+index[j]]
-			data[j*dimensions+i] = float64(x) / (1 << sobolBits)
+			x ^= sobolData[i*bits+index[j]]
+			data[j*dimensions+i] = float64(x) / size
 		}
 	}
 
