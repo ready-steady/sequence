@@ -10,8 +10,6 @@ func Sobol(dimensions, points uint, seed int64) []float64 {
 		size = 1 << bits
 	)
 
-	data := make([]float64, points*dimensions)
-
 	index := make([]uint, points)
 	for i := uint(1); i < points; i++ {
 		for j := i - 1; j&1 != 0; j >>= 1 {
@@ -19,6 +17,7 @@ func Sobol(dimensions, points uint, seed int64) []float64 {
 		}
 	}
 
+	data := make([]float64, points*dimensions)
 	for i := uint(0); i < dimensions; i++ {
 		data[i] = float64(uint32(seed)) / size
 		for j, x := uint(1), uint32(seed); j < points; j++ {
