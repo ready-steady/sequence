@@ -4,6 +4,26 @@ The package provides generators of [low-discrepancy sequences][wiki].
 
 ## [Documentation][doc]
 
+## Installation
+
+Fetch the package:
+
+```bash
+go get -d github.com/ready-steady/sampling
+```
+
+Go to the directory of the package:
+
+```bash
+cd $GOPATH/src/github.com/ready-steady/sampling
+```
+
+Finally, install the package:
+
+```bash
+make install
+```
+
 ## Acknowledgments
 
 The code is based on the work of [John Burkardt][burkardt].
