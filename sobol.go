@@ -27,7 +27,6 @@ func NewSobol(dimensions uint, scramble int64) *Sobol {
 func (s *Sobol) Next(points uint) []float64 {
 	const (
 		bits = 32
-		size = 1 << bits
 	)
 
 	dimensions, offset, cursor := s.dimensions, s.offset, s.cursor
@@ -39,7 +38,7 @@ func (s *Sobol) Next(points uint) []float64 {
 			k++
 		}
 		for j := uint(0); j < dimensions; j++ {
-			data[i*dimensions+j] = float64(cursor[j]) / size
+			data[i*dimensions+j] = float64(cursor[j]) / (1 << bits)
 			cursor[j] ^= sobolData[j*bits+k]
 		}
 	}
