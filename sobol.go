@@ -32,18 +32,15 @@ func (s *Sobol) Next(points uint) []float64 {
 
 	dimensions, offset, cursor := s.dimensions, s.offset, s.cursor
 
-	index := make([]uint, points)
-	for i := uint(0); i < points; i++ {
-		for j := offset + i; j&1 != 0; j >>= 1 {
-			index[i]++
-		}
-	}
-
 	data := make([]float64, points*dimensions)
-	for i := uint(0); i < dimensions; i++ {
-		for j := uint(0); j < points; j++ {
-			data[j*dimensions+i] = float64(cursor[i]) / size
-			cursor[i] ^= sobolData[i*bits+index[j]]
+	for i := uint(0); i < points; i++ {
+		k := uint(0)
+		for j := offset + i; j&1 != 0; j >>= 1 {
+			k++
+		}
+		for j := uint(0); j < dimensions; j++ {
+			data[i*dimensions+j] = float64(cursor[j]) / size
+			cursor[j] ^= sobolData[j*bits+k]
 		}
 	}
 
