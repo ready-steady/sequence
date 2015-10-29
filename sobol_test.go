@@ -6,6 +6,11 @@ import (
 	"github.com/ready-steady/assert"
 )
 
+func TestNewSobol(t *testing.T) {
+	sequence := NewSobol(3, 0x0102030405060708)
+	assert.Equal(sequence.cursor, []uint32{0x05060708, 0x01020304, 0x05060708}, t)
+}
+
 func TestSobol3D(t *testing.T) {
 	sequence := NewSobol(3, 0)
 

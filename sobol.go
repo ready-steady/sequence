@@ -14,7 +14,11 @@ type Sobol struct {
 func NewSobol(dimensions uint, scramble int64) *Sobol {
 	cursor := make([]uint32, dimensions)
 	for i := range cursor {
-		cursor[i] = uint32(scramble)
+		if i%2 == 0 {
+			cursor[i] = uint32(scramble)
+		} else {
+			cursor[i] = uint32(scramble >> 32)
+		}
 	}
 
 	return &Sobol{
