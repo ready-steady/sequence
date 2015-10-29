@@ -18,12 +18,12 @@ The code is inspired by [Leonhard Grünschloß][2].
 
 1. Fork the project.
 2. Implement your idea.
-3. Create a pull request.
+3. Open a pull request.
 
 [1]: https://en.wikipedia.org/wiki/Low-discrepancy_sequence
 [2]: http://gruenschloss.org
 [3]: http://dx.doi.org/10.1137/070709359
 
-[doc]: http://godoc.org/github.com/ready-steady/sequence
 [status-svg]: https://travis-ci.org/ready-steady/sequence.svg?branch=master
 [status-url]: https://travis-ci.org/ready-steady/sequence
+[doc]: http://godoc.org/github.com/ready-steady/sequence
