@@ -12,18 +12,9 @@ type Sobol struct {
 
 // NewSobol returns a new Sobol sequence.
 func NewSobol(dimensions uint, scramble int64) *Sobol {
-	cursor := make([]uint32, dimensions)
-	for i := range cursor {
-		if i%2 == 0 {
-			cursor[i] = uint32(scramble)
-		} else {
-			cursor[i] = uint32(scramble >> 32)
-		}
-	}
-
 	return &Sobol{
 		dimensions: dimensions,
-		cursor:     cursor,
+		cursor:     newCursor(dimensions, scramble),
 	}
 }
 
@@ -50,4 +41,16 @@ func (s *Sobol) Next(points uint) []float64 {
 	s.offset += points
 
 	return data
+}
+
+func newCursor(dimensions uint, scramble int64) []uint32 {
+	cursor := make([]uint32, dimensions)
+	for i := range cursor {
+		if i%2 == 0 {
+			cursor[i] = uint32(scramble)
+		} else {
+			cursor[i] = uint32(scramble >> 32)
+		}
+	}
+	return cursor
 }
