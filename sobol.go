@@ -19,12 +19,12 @@ func NewSobol(dimensions uint, scramble int64) *Sobol {
 }
 
 // Next advances the sequence and returns the traversed points.
-func (s *Sobol) Next(points uint) []float64 {
+func (self *Sobol) Next(points uint) []float64 {
 	const (
 		bits = 32
 	)
 
-	dimensions, offset, cursor := s.dimensions, s.offset, s.cursor
+	dimensions, offset, cursor := self.dimensions, self.offset, self.cursor
 
 	data := make([]float64, points*dimensions)
 	for i := uint(0); i < points; i++ {
@@ -38,7 +38,7 @@ func (s *Sobol) Next(points uint) []float64 {
 		}
 	}
 
-	s.offset += points
+	self.offset += points
 
 	return data
 }
